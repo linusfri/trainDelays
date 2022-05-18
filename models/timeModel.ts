@@ -4,26 +4,15 @@ class TimeModel {
 
     /**
      * @function getTimeDelay
-     * @param startTime string | xx:xx:xx
-     * @param endTime string | xx:xx:xx
+     * @param startTime string | hh:mm:ss
+     * @param endTime string | hh:mm:ss
      */
     static getTimeDelay(startTime:string, endTime:string) {
-        const startTimeList = startTime.split(':');
-        const endTimeList = endTime.split(':');
+        const startTimeList:string[] = startTime.split(':');
+        const endTimeList:string[] = endTime.split(':');
 
-        startTimeList.map(time => {
-            if (time.length < 2) {
-                return new Error('Invalid time format');
-            }
-        });
-        endTimeList.map(time => {
-            if (time.length < 2) {
-                return new Error('Invalid time format');
-            }
-        });
-
-        const startTimeSecondsList = TimeModel.convertListToInt(startTimeList);
-        const endTimeSecondsList = TimeModel.convertListToInt(endTimeList);
+        const startTimeSecondsList = TimeModel.convertListToSeconds(startTimeList);
+        const endTimeSecondsList = TimeModel.convertListToSeconds(endTimeList);
 
         const startTimeInt = startTimeSecondsList.reduce((timeCurr, timePrev) => {
             return timeCurr + timePrev;
@@ -32,17 +21,44 @@ class TimeModel {
             return timeCurr + timePrev;
         });
 
-        if (endTimeInt < startTimeInt) {
-            throw new Error('endTime must be greater than startTime.');
-        }
+        let timeDiff = endTimeInt - startTimeInt;
 
-        const timeDiff = endTimeInt - startTimeInt;
+        /**
+         * Train is delayed past midnight and were supposed to go before midnight.
+         * This results in a negative time difference, which these lines fixes.
+         */
+        if (timeDiff < 0) {
+            timeDiff += 24 * TimeModel.H_TO_SEC;
+        }
 
         return this.getTimeFormattedString(timeDiff);
     }
 
-    private static convertListToInt(timeList:string[]) {
-        const timeSecondsList = timeList.map((timeFragment, index) => {
+    /**
+     * @function getTimeInMinutes
+     * @param time A string in the format hh:mm:ss
+     */
+    static getTimeInMinutes(time:string) {
+        const seconds:number = time.split(':')
+            .map((timeFragment, index) => {
+                switch (index) {
+                    case 0:
+                        return parseInt(timeFragment) * TimeModel.H_TO_SEC;
+                    case 1:
+                        return parseInt(timeFragment) * TimeModel.M_TO_SEC;
+                    case 2:
+                        return parseInt(timeFragment);
+                    default:
+                        return 0;
+                }
+            })
+            .reduce((prevSec, currSec) => { return prevSec + currSec; });
+
+            return seconds / TimeModel.M_TO_SEC;
+    }
+
+    private static convertListToSeconds(timeList:string[]) {
+        const timeListSeconds = timeList.map((timeFragment, index) => {
             switch (index) {
                 case 0:
                     return parseInt(timeFragment) * TimeModel.H_TO_SEC;
@@ -55,7 +71,7 @@ class TimeModel {
             }
         });
 
-        return timeSecondsList;
+        return timeListSeconds;
     }
 
     private static getTimeFormattedString(timeDiffSeconds:number) {
@@ -67,7 +83,7 @@ class TimeModel {
 
         timeDiffSeconds -= numMinutes * TimeModel.M_TO_SEC;
 
-        const numSeconds = timeDiffSeconds.toString();
+        const numSeconds = timeDiffSeconds;
 
         const timeStringList = [numHours.toString(), numMinutes.toString(), numSeconds.toString()];
 

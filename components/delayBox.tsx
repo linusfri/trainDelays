@@ -7,6 +7,8 @@ import TimeModel from '../models/timeModel';
 import delayBox from '../types/delayBox';
 
 export default function DelayBox({navigation, fromDate, lateFromDate, delay, from, to }:delayBox) {
+    const delayTimeString = TimeModel.getTimeDelay(fromDate, lateFromDate);
+
     return (
         <View style={base.styles.delayBox}>
             <Text style={typo.styles.delayBoxText}>
@@ -20,7 +22,7 @@ export default function DelayBox({navigation, fromDate, lateFromDate, delay, fro
                 <Text>Nuvarande avgång: {lateFromDate}</Text>
                 {'\n'}
                 <Text style={typo.styles.delayBoxPBold}>
-                    Försening: {TimeModel.getTimeDelay(fromDate, lateFromDate)}
+                    Försening: {delayTimeString}
                 </Text>
                 {'\n'}
                 <Text>{`Tåg: ${delay.AdvertisedTrainIdent}`}</Text>
@@ -28,7 +30,9 @@ export default function DelayBox({navigation, fromDate, lateFromDate, delay, fro
             </Text>
             <TouchableOpacity
                 style={base.styles.button}
-                onPress={ () => navigation.navigate('Detaljer', {delay: delay})}
+                onPress={ () => navigation.navigate(
+                    'Detaljer', {delay: delay, time: delayTimeString}
+                    )}
             >
                 <Text style={typo.styles.buttonText}>Vad kan jag göra under tiden?</Text>
             </TouchableOpacity>
