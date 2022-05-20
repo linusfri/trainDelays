@@ -1,4 +1,4 @@
-import geometry from './geometry';
+import geometry from './Igeometry';
 
 interface Station {
     AdvertisedLocationName: string,

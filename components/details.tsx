@@ -1,11 +1,9 @@
 import { View, Text } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import MapView, { Marker, Circle } from 'react-native-maps';
+import MapView, { Circle } from 'react-native-maps';
 
-import { base } from '../Styles/index';
-import Delay from '../interfaces/delay';
-import home from '../types/home';
-import stackRoute from '../types/stackRoute';
+import { base, typo } from '../Styles/index';
+import stackRoute from '../types/homeStackRoute';
 import TimeModel from '../models/timeModel';
 import WaitModel from '../models/waitModel';
 
@@ -51,7 +49,30 @@ export default function Details({ route } : stackRoute) {
                     />
                 </MapView>
             </View>
-            <Text>{`Minutes late: ${minutes}`}</Text>
+            <View style={base.styles.delayBox}>
+                <Text style={[typo.styles.h2, typo.styles.delayBoxText]}>Gå på en promenad</Text>
+            </View>
+            <View style={base.styles.detailsBox}>
+                {
+                    (distance !== 0) ?
+                    <Text>
+                        Cirkeln visar vart du kan gå, om du går i en rak linje.
+                        Om du inte vill gå i en rak linje så har du nytta av följande information:
+                        {'\n\n'}
+                        1. Du kan gå cirka 100m per minut.
+                        {'\n'}
+                        2. Du hinner gå ca {distance} meter.
+                        {'\n'}
+                        3. Tid har dragits av på förseningen
+                        för att du ska få lite marginal.
+
+                    </Text> :
+                    <Text>
+                        Tid reserveras så att du hinner med tåget.
+                        Därför är ingen idé att gå eftersom det finns för lite tid.
+                    </Text>
+                }
+            </View>
         </View>
     );
 }

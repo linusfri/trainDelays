@@ -1,8 +1,8 @@
 import config from '../config/config.json';
 
-import Station from '../interfaces/station';
-import StationSignGeoName from '../interfaces/stationSignGeoName';
-import Delay from '../interfaces/delay';
+import Station from '../interfaces/Istation';
+import StationSignGeoName from '../interfaces/IstationSignGeoName';
+import Delay from '../interfaces/Idelay';
 
 const trainModel = {
     getStations: async function getStations() {

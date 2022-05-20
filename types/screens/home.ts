@@ -1,5 +1,5 @@
 import type { rootDrawerParamList } from './rootDrawerParamList';
-import Delay from '../interfaces/delay';
+import Delay from '../interfaces/Idelay';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 
 type home = {

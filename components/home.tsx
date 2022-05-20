@@ -4,9 +4,9 @@ import MapView, { Marker } from 'react-native-maps';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as location from 'expo-location';
 
-import MapList from './mapList';
-import Details from './details';
-import home from '../types/home';
+import MapList from './MapList';
+import Details from './Details';
+import home from '../types/screens/home';
 import { styles } from '../Styles/base';
 
 export default function Home({ delays, getDelays } : home) {

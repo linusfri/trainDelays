@@ -4,17 +4,19 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import React, {useState, useEffect} from 'react';
+import FlashMessage from 'react-native-flash-message';
 
-import Delay from './interfaces/delay';
+import Delay from './interfaces/Idelay';
 import { rootDrawerParamList } from './types/rootDrawerParamList';
-import rootNavigation from './types/rootNavigation';
 import { base } from './Styles/index';
-import HeaderNav from './components/headerNav';
-import Messages from './components/messages';
-import Favorites from './components/favorites';
-import List from './components/list';
 import trainModel from './models/trainModel';
-import Home from './components/home';
+import authModel from './models/authModel';
+import HeaderNav from './components/HeaderNav';
+import Messages from './components/Messages';
+import Favorites from './components/Favorites';
+import List from './components/List';
+import Home from './components/Home';
+import Auth from './components/auth/Auth';
 
 const Drawer = createDrawerNavigator<rootDrawerParamList>();
 
@@ -28,19 +30,26 @@ const navTheme = {
 
 export default function App() {
   const [delays, getDelays] = useState<Delay[]>([]);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   async function getAllDelays() {
     getDelays(await trainModel.getDelaysPerStation());
   }
+
+  async function isUserLoggedIn() {
+    setIsLoggedIn(await authModel.loggedIn());
+  }
+
   useEffect(() => {
     getAllDelays();
+    isUserLoggedIn();
   }, []);
 
   return (
     <SafeAreaView style={base.styles.appMainContainer}>
       <NavigationContainer theme={navTheme}>
-        <Drawer.Navigator screenOptions={({ navigation } : rootNavigation) => ({
-          headerRight: () => <HeaderNav navigation={navigation}/>
+        <Drawer.Navigator screenOptions={({ navigation }) => ({
+          headerRight: () => <HeaderNav navigation={navigation} isLoggedIn={isLoggedIn}/>
         })}
         >
           <Drawer.Screen name='Hem'>
@@ -50,12 +59,20 @@ export default function App() {
             {(screenProps) => <List {...screenProps} delays={delays} getDelays={getAllDelays}/>}
           </Drawer.Screen>
           <Drawer.Screen name='Meddelanden' component={Messages}/>
-          <Drawer.Screen name='Favoriter'>
-            {(screenProps) => <Favorites {...screenProps}/>  }
-          </Drawer.Screen>
+
+          {
+            isLoggedIn ?
+            <Drawer.Screen name='Favoriter'>
+              {(screenProps) => <Favorites {...screenProps} isUserLoggedIn={isUserLoggedIn}/>  }
+            </Drawer.Screen> :
+            <Drawer.Screen name='Logga in'>
+              {(screenProps) => <Auth {...screenProps} setIsLoggedIn={setIsLoggedIn} /> }
+            </Drawer.Screen>
+          }
         </Drawer.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
+      <FlashMessage position="top"/>
     </SafeAreaView>
   );
 }

@@ -1,7 +1,7 @@
 import { ScrollView, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import Delay from '../interfaces/delay';
+import Delay from '../interfaces/Idelay';
 import trainModel from '../models/trainModel';
 
 export default function delays({ delays }:{ delays: Delay[] }) {

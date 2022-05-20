@@ -1,4 +1,4 @@
-import stationNameCoords from './stationNameCoords';
+import stationNameCoords from './IstationNameCoords';
 
 interface StationSignGeoName {
     [key: string]: stationNameCoords

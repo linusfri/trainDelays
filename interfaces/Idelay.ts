@@ -1,4 +1,4 @@
-import location from './location';
+import location from './Ilocation';
 
 interface Delay {
     ActivityId: string,

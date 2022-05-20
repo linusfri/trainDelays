@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { base, typo } from '../Styles/index';
 import TimeModel from '../models/timeModel';
-import delayBox from '../types/delayBox';
+import delayBox from '../types/screens/delayBox';
 
 export default function DelayBox({navigation, fromDate, lateFromDate, delay, from, to }:delayBox) {
     const delayTimeString = TimeModel.getTimeDelay(fromDate, lateFromDate);

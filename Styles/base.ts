@@ -16,10 +16,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 
+  containerRadius: {
+    borderRadius: 4
+  },
+
   button: {
     padding: 10,
     backgroundColor: '#339966',
     borderRadius: 2,
+  },
+
+  formButton: {
+    paddingTop: 15,
+    paddingBottom: 15,
+    paddingRight: 10,
+    paddingLeft: 10,
+    backgroundColor: '#339966',
+    borderRadius: 2,
+    marginBottom: 12,
   },
 
   headerNav: {
@@ -41,7 +55,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#424242',
     marginTop: 6,
-    marginBottom: 6,
     padding: 6,
     color: '#FEC106',
     alignItems: 'center'
@@ -54,7 +67,16 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: 'rgba(255,60,0,0.8)',
     padding: 20
-  }
+  },
+
+  detailsBox: {
+    display: 'flex',
+    borderRadius: 4,
+    backgroundColor: 'rgba(0,0,0,0.1)',
+    marginBottom: 6,
+    padding: 6,
+    alignItems: 'center'
+  },
 });
 
 export { styles };

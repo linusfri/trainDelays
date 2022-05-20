@@ -6,7 +6,7 @@ class WaitModel {
          * Take into account that the person walking will have to have some margins
          * so he/she doesn't miss the train. Two minutes should suffice.
          */
-        minutes -= 2;
+        minutes - 2 > 0 ? minutes -= 2 : minutes = 0;
 
         return minutes * WaitModel.METERS_WALKED_PER_MINUTE;
     }

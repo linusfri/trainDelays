@@ -5,13 +5,13 @@ import * as Location from 'expo-location';
 
 import trainModel from '../models/trainModel';
 import { base, typo } from '../Styles/index';
-import Delay from '../interfaces/delay';
+import Delay from '../interfaces/Idelay';
 import { useState, useEffect } from 'react';
-import DelayBox from './delayBox';
-import stackNav from '../types/stackNav';
+import DelayBox from './DelayBox';
+import homeStack from '../types/screens/homeStack';
 
 
-export default function MapList({navigation, delays, getDelays } : stackNav) {
+export default function MapList({navigation, delays, getDelays } : homeStack) {
     const [stationDelays, setStationDelays] = useState<JSX.Element[]>([]);
     const [userMarker, setUserMarker] = useState<JSX.Element>(<></>);
 

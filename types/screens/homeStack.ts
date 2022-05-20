@@ -1,5 +1,5 @@
-import type { stackParamList } from './stackParamList';
-import Delay from '../interfaces/delay';
+import type { stackParamList } from '../homeStackParamList';
+import Delay from '../../interfaces/Idelay';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type stackNav = {
