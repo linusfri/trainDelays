@@ -31,6 +31,7 @@ const navTheme = {
 export default function App() {
   const [delays, getDelays] = useState<Delay[]>([]);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [interval, setTimeInterval] = useState<NodeJS.Timer>();
 
   async function getAllDelays() {
     getDelays(await trainModel.getDelaysPerStation());
@@ -41,7 +42,8 @@ export default function App() {
   }
 
   useEffect(() => {
-    getAllDelays();
+    clearInterval(interval);
+    setTimeInterval(setInterval(getAllDelays, 15000));
     isUserLoggedIn();
   }, []);
 
@@ -63,7 +65,14 @@ export default function App() {
           {
             isLoggedIn ?
             <Drawer.Screen name='Favoriter'>
-              {(screenProps) => <Favorites {...screenProps} isUserLoggedIn={isUserLoggedIn}/>  }
+              {(screenProps) =>
+                <Favorites
+                  {...screenProps}
+                  isLoggedIn={isUserLoggedIn}
+                  delays={delays}
+                  getDelays={getAllDelays}
+                />
+              }
             </Drawer.Screen> :
             <Drawer.Screen name='Logga in'>
               {(screenProps) => <Auth {...screenProps} setIsLoggedIn={setIsLoggedIn} /> }

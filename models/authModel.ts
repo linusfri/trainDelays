@@ -72,6 +72,7 @@ const auth = {
             type: 'success'
         };
     },
+
     logout: async function logout() {
         await storage.deleteToken();
     }

@@ -9,14 +9,14 @@ const trainModel = {
         const result = await fetch(`${config.url}/stations`);
         const json = await result.json();
 
-        return await json.data;
+        return json.data;
     },
 
     getDelays: async function getDelays() {
         const result = await fetch(`${config.url}/delayed`);
         const json = await result.json();
 
-        return await json.data;
+        return json.data;
     },
 
     genStationNamesCoordinates: async function genStationNamesCoordinates() {
@@ -83,6 +83,25 @@ const trainModel = {
         return [...definedValues, ...undefinedValues];
     },
 
+    sortStations: function(stations:Station[]) {
+        stations = stations.sort((a, b) => {
+            const left = a.AdvertisedLocationName;
+            const right = b.AdvertisedLocationName;
+
+            if (left < right) {
+                return -1;
+            }
+
+            if (left > right) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        return stations;
+    },
+
     sortDelaysByTo: function (delays:Delay[]) {
         const undefinedValues = delays.filter(delay => typeof delay.ToLocation === 'undefined');
         const definedValues = delays.filter(delay => typeof delay.ToLocation !== 'undefined');
@@ -138,6 +157,22 @@ const trainModel = {
         delays = await this.getDelayNamesAndCoords(delays);
 
         return delays;
+    },
+
+    getDelaysSingleStation: function(stationSignature:string, delays:Delay[]) {
+        const singleStationDelays = delays.filter((delay:Delay) => {
+            if (typeof delay.FromLocation === 'undefined') {
+                return false;
+            }
+
+            if (delay.FromLocation[0].LocationName === stationSignature) {
+                return delay;
+            }
+
+            return false;
+        });
+
+        return singleStationDelays;
     },
 
     dedupeDelaysOnlyFrom: function(delays: Delay[]) {

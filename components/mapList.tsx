@@ -41,18 +41,8 @@ export default function MapList({navigation, delays, getDelays } : homeStack) {
         );
     }
 
-    function getDelaySingleStation(stationSignature:string) {
-        let singleStationDelays = delays.filter((delay:Delay) => {
-            if (typeof delay.FromLocation === 'undefined') {
-                return false;
-            }
-
-            if (delay.FromLocation[0].LocationName === stationSignature) {
-                return delay;
-            }
-
-            return false;
-        });
+    function getDelaysSingleStation(stationSignature:string) {
+        let singleStationDelays = trainModel.getDelaysSingleStation(stationSignature, delays);
 
         singleStationDelays = trainModel.sortDelaysByTo(singleStationDelays);
 
@@ -95,7 +85,9 @@ export default function MapList({navigation, delays, getDelays } : homeStack) {
                         }}
                     description={delay.FromLocation[0].LocationName}
                     onPress={() => {
-                        setStationDelays(getDelaySingleStation(delay.FromLocation[0].LocationName));
+                        setStationDelays(
+                            getDelaysSingleStation(delay.FromLocation[0].LocationName)
+                        );
                     }}
                 />
             );
@@ -121,7 +113,7 @@ export default function MapList({navigation, delays, getDelays } : homeStack) {
             {
                 stationDelays.length ? stationDelays :
                 <View style={base.styles.homeTextPlaceholder}>
-                    <Text style={typo.styles.pBold}>
+                    <Text style={typo.styles.stationBoxText}>
                         Tryck på en station för att visa förseningar
                     </Text>
                 </View>

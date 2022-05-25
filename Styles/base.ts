@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 
+  margin12Top: {
+    marginTop: 12
+  },
+
   containerRadius: {
     borderRadius: 4
   },
@@ -34,6 +38,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#339966',
     borderRadius: 2,
     marginBottom: 12,
+  },
+
+  pickerButton: {
+    paddingTop: 15,
+    paddingBottom: 15,
+    paddingRight: 10,
+    paddingLeft: 10,
+    backgroundColor: '#339966',
+    borderRadius: 2,
+    marginBottom: 6,
+    marginTop: 12
   },
 
   headerNav: {
@@ -60,12 +75,20 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
 
+  stationNameBox: {
+    borderRadius: 4,
+    backgroundColor: '#424242',
+    marginTop: 6,
+    marginBottom: 6,
+    color: '#FEC106',
+  },
+
   homeTextPlaceholder: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     borderRadius: 4,
-    backgroundColor: 'rgba(255,60,0,0.8)',
+    backgroundColor: '#424242',
     padding: 20
   },
 
@@ -77,6 +100,15 @@ const styles = StyleSheet.create({
     padding: 6,
     alignItems: 'center'
   },
+
+  stationDropDown: {
+    borderRadius: 4,
+    borderStyle: 'solid',
+    borderColor: 'rgba(0,0,0,0.1)',
+    borderWidth: 2,
+    marginTop: 6,
+    padding: 4
+  }
 });
 
 export { styles };

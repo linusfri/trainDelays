@@ -43,7 +43,7 @@ export default function Details({ route } : stackRoute) {
                             latitude: parseFloat(lat),
                             longitude: parseFloat(long),
                         }}
-                        radius={distance}
+                        radius={distance / 2}
                         fillColor='rgba(0,0,255,0.1)'
                         strokeColor='rgba(0,0,255,0.5)'
                     />

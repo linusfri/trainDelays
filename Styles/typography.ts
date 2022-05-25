@@ -11,6 +11,14 @@ const styles = StyleSheet.create( {
         textAlign: 'center'
     },
 
+    stationBoxText: {
+        paddingBottom: 24,
+        paddingTop: 24,
+        textAlign: 'center',
+        color: '#FEC106',
+        fontWeight: '700'
+    },
+
     delayBoxPBold: {
         fontWeight: '900',
         color: '#FEC106'
@@ -31,7 +39,7 @@ const styles = StyleSheet.create( {
     },
 
     label: {
-        fontSize: 12,
+        fontSize: 14,
         marginBottom: 0
     },
 });

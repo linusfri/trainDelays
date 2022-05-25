@@ -1,5 +1,5 @@
-import type { stackParamList } from './homeStackParamList';
-import Delay from '../interfaces/Idelay';
+import type { stackParamList } from '../homeStackParamList';
+import Delay from '../../interfaces/Idelay';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type delayBox = {
