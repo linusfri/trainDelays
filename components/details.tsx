@@ -67,7 +67,7 @@ export default function Details({ route } : stackRoute) {
                         för att du ska få lite marginal.
 
                     </Text> :
-                    <Text>
+                    <Text style={typo.styles.pWhite}>
                         Tid reserveras så att du hinner med tåget.
                         Därför är ingen idé att gå eftersom det finns för lite tid.
                     </Text>
