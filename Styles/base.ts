@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
 
   flashMessage: {
-    marginTop: 12
+    paddingTop: 30
   },
 
   container: {
@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
   },
 
   picker: {
-    color: 'white'
+    color: 'white',
+    backgroundColor: '#2F2F2F'
   },
 
   containerRadius: {

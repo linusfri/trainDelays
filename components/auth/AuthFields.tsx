@@ -14,6 +14,7 @@ export default function AuthFields({ auth, setAuth, title, submit, navigation}:a
                 }}
                 value={auth?.email}
                 keyboardType='email-address'
+                autoCapitalize='none'
             />
             <Text style={typo.styles.label}>Lösenord</Text>
             <TextInput

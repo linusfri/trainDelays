@@ -50,7 +50,9 @@ export default function StationPicker(props:stationPicker) {
                 onValueChange={(signature:string) => {
                     setCurrentItem(signature);
                 }}
+                dropdownIconColor='white'
                 style={base.styles.picker}
+                itemStyle={{color: 'white'}}
             >
                 {stationPickerItems}
             </Picker>
