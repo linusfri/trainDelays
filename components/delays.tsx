@@ -3,13 +3,14 @@ import { Ionicons } from '@expo/vector-icons';
 
 import Delay from '../interfaces/Idelay';
 import trainModel from '../models/trainModel';
+import { base, typo } from '../Styles';
 
 export default function delays({ delays }:{ delays: Delay[] }) {
     const deDupedDelays = trainModel.dedupeDelays(delays).map((delay, index) => {
         if (typeof delay.FromLocation !== 'undefined') {
           return (
-            <View key={index}>
-                <Text>
+            <View style={base.styles.stationNameBox} key={index}>
+                <Text style={typo.styles.stationBoxText}>
                     {delay.FromLocation[0].AdvertisedLocationName}
                     <Ionicons name={'arrow-forward-outline'} size={24}/>
                     {delay.ToLocation[0].AdvertisedLocationName}

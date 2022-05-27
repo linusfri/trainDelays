@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
+import * as NavigationBar from 'expo-navigation-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -24,9 +25,11 @@ const navTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: 'transparent'
+    background: '#2F2F2F',
   }
 };
+
+NavigationBar.setBackgroundColorAsync('#000');
 
 export default function App() {
   const [delays, getDelays] = useState<Delay[]>([]);
@@ -51,7 +54,18 @@ export default function App() {
     <SafeAreaView style={base.styles.appMainContainer}>
       <NavigationContainer theme={navTheme}>
         <Drawer.Navigator screenOptions={({ navigation }) => ({
-          headerRight: () => <HeaderNav navigation={navigation} isLoggedIn={isLoggedIn}/>
+          headerRight: () => <HeaderNav navigation={navigation} isLoggedIn={isLoggedIn}/>,
+          headerStyle: {
+            backgroundColor: '#212121',
+          },
+          headerTintColor: 'white',
+          drawerStyle: {
+            backgroundColor: '#303030'
+          },
+          drawerLabelStyle: {
+            color: 'white'
+          },
+          drawerActiveBackgroundColor: '#494949'
         })}
         >
           <Drawer.Screen name='Hem'>
@@ -80,8 +94,8 @@ export default function App() {
           }
         </Drawer.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
-      <FlashMessage position="top"/>
+      <StatusBar style='light' backgroundColor='#212121'  />
+      <FlashMessage position="top" style={base.styles.flashMessage}/>
     </SafeAreaView>
   );
 }

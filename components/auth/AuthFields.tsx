@@ -5,7 +5,7 @@ import authFields from '../../types/screens/authFields';
 
 export default function AuthFields({ auth, setAuth, title, submit, navigation}:authFields) {
     return (
-        <View testID='Logga in' style={forms.styles.base}>
+        <View testID='AuthFields' style={forms.styles.base}>
             <Text style={typo.styles.label}>E-post</Text>
             <TextInput
                 style={forms.styles.input}

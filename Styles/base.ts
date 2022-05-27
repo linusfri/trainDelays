@@ -7,17 +7,27 @@ const dividedDeviceHeight = Dimensions.get('window').height / 2;
 const styles = StyleSheet.create({
   appMainContainer: {
     flex: 1,
-        paddingLeft: mainAppPadding,
-        paddingRight: mainAppPadding
+    backgroundColor: '#2F2F2F',
+    width: '100%',
+  },
+
+  flashMessage: {
+    marginTop: 12
   },
 
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#2F2F2F',
+    paddingLeft: mainAppPadding,
+    paddingRight: mainAppPadding,
   },
 
   margin12Top: {
     marginTop: 12
+  },
+
+  picker: {
+    color: 'white'
   },
 
   containerRadius: {
@@ -56,8 +66,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  headerIcon: {
-    paddingRight: 16
+  headerIconLeft: {
+    paddingRight: 26,
+    color: 'white'
+  },
+
+  headerIconRight: {
+    paddingRight: 12,
+    color: 'white'
   },
 
   map: {
@@ -108,7 +124,14 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     marginTop: 6,
     padding: 4
-  }
+  },
 });
 
-export { styles };
+const stackHeaderStyle = {
+  headerTintColor: 'white',
+  headerStyle: {
+      backgroundColor: '#2F2F2F'
+  }
+};
+
+export { styles, stackHeaderStyle };

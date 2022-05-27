@@ -20,7 +20,10 @@ export default function Favorites({isLoggedIn, delays, getDelays} : favorites) {
     return (
         <View style={base.styles.container}>
             <Stack.Navigator>
-                <Stack.Screen name='Favoritlista'>
+                <Stack.Screen
+                    name='Favoritlista'
+                    options={{...base.stackHeaderStyle}}
+                >
                     {(screenProps) =>
                         <FavoritesList
                             isLoggedIn={isLoggedIn}
@@ -30,7 +33,11 @@ export default function Favorites({isLoggedIn, delays, getDelays} : favorites) {
                         />
                     }
                 </Stack.Screen>
-                <Stack.Screen name='Favoritdetaljer' component={FavoriteDetails}/>
+                <Stack.Screen
+                    name='Favoritdetaljer'
+                    component={FavoriteDetails}
+                    options={{...base.stackHeaderStyle}}
+                />
             </Stack.Navigator>
         </View>
     );

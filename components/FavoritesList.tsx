@@ -86,7 +86,7 @@ export default function FavoritesList({navigation, isLoggedIn, delays, getDelays
                 userFavorites={userFavorites}
                 getDelays={getDelays}
             />
-            <Text style={base.styles.margin12Top}>Dina favoriter</Text>
+            <Text style={[base.styles.margin12Top, typo.styles.pWhite]}>Dina favoriter</Text>
             {stationsToRender}
             <TouchableOpacity
                 style={base.styles.formButton}
@@ -96,7 +96,7 @@ export default function FavoritesList({navigation, isLoggedIn, delays, getDelays
                 }}
                 testID='button'
             >
-                <Text>Logga ut</Text>
+                <Text style={typo.styles.buttonText}>Logga ut</Text>
             </TouchableOpacity>
         </ScrollView>
     );

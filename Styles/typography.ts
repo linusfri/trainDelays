@@ -6,6 +6,10 @@ const styles = StyleSheet.create( {
         color: 'white'
     },
 
+    pWhite: {
+        color: 'white'
+    },
+
     delayBoxText: {
         color: '#FEC106',
         textAlign: 'center'
@@ -40,7 +44,8 @@ const styles = StyleSheet.create( {
 
     label: {
         fontSize: 14,
-        marginBottom: 0
+        marginBottom: 0,
+        color: 'white'
     },
 });
 

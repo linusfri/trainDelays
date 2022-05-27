@@ -55,7 +55,7 @@ export default function Details({ route } : stackRoute) {
             <View style={base.styles.detailsBox}>
                 {
                     (distance !== 0) ?
-                    <Text>
+                    <Text style={typo.styles.pWhite}>
                         Cirkeln visar vart du kan gå, om du går i en rak linje.
                         Om du inte vill gå i en rak linje så har du nytta av följande information:
                         {'\n\n'}

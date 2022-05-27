@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { showMessage } from 'react-native-flash-message';
 
-import { base, typo } from '../Styles/index';
+import { base, forms, typo } from '../Styles/index';
 import stationPicker from '../types/screens/stationPicker';
 import userModel from '../models/userModel';
 import trainModel from '../models/trainModel';
@@ -50,6 +50,7 @@ export default function StationPicker(props:stationPicker) {
                 onValueChange={(signature:string) => {
                     setCurrentItem(signature);
                 }}
+                style={base.styles.picker}
             >
                 {stationPickerItems}
             </Picker>
@@ -60,7 +61,7 @@ export default function StationPicker(props:stationPicker) {
                     saveData();
                 }}
             >
-                <Text>Spara station som favorit</Text>
+                <Text style={typo.styles.buttonText}>Spara station som favorit</Text>
             </TouchableOpacity>
         </View>
     );

@@ -1,4 +1,4 @@
-import { Button, View } from 'react-native';
+import { Button, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -11,17 +11,18 @@ export default function HeaderNav({ navigation, isLoggedIn } : rootDrawer) {
             {
                 isLoggedIn ?
                     <Ionicons
-                    style={base.styles.headerIcon} name="heart-outline" size={28}
+                    style={base.styles.headerIconLeft} name="heart" size={26}
                     onPress={() => navigation.navigate('Favoriter')}
                     /> :
                     <Ionicons
-                    style={base.styles.headerIcon} name="heart-outline" size={28}
+                    style={base.styles.headerIconLeft} name="heart" size={26}
                     onPress={() => navigation.navigate('Logga in')}
                     />
             }
 
             <Ionicons
-                name="alert-circle-outline" size={28}
+                style={base.styles.headerIconRight}
+                name="alert-circle" size={26}
                 onPress={() => navigation.navigate('Meddelanden')}
             />
         </View>

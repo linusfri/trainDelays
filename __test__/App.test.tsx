@@ -23,7 +23,7 @@ test('Testar så att hemskärmen är kartvyn och att den innehåller texten "Try
     });
 });
 
-test('Testar att ett tryck på logga in tar en till sidan "Login"', async () => {
+test('Testar att ett tryck på "Logga in", i menyn, renderar "AuthFields"-komponenten', async () => {
     await waitFor(() => {
         const {getByText, getByTestId} = render(<App/>);
 
@@ -31,7 +31,21 @@ test('Testar att ett tryck på logga in tar en till sidan "Login"', async () => 
 
         fireEvent(loginTab, 'press');
 
-        const newScreen = getByTestId('Logga in');
+        const newScreen = getByTestId('AuthFields');
+
+        expect(newScreen).toBeDefined();
+    });
+});
+
+test('Testar att ett tryck på "Lista", i menyn, renderar "List"-komponenten', async () => {
+    await waitFor(() => {
+        const {getByText, getByTestId} = render(<App/>);
+
+        const listTab = getByText('Lista');
+
+        fireEvent(listTab, 'press');
+
+        const newScreen = getByTestId('List');
 
         expect(newScreen).toBeDefined();
     });

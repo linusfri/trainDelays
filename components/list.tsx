@@ -13,7 +13,7 @@ export default function List({navigation, delays, getDelays } : home) {
       }, []);
 
     return (
-        <View>
+      <View testID='List' style={base.styles.container}>
         <ScrollView>
             <Delays delays={delays} />
         </ScrollView>

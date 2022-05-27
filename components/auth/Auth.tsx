@@ -14,10 +14,17 @@ export default function Auth({navigation, setIsLoggedIn} : auth) {
     return (
         <View style={base.styles.container}>
             <Stack.Navigator>
-                <Stack.Screen name='Login'>
+                <Stack.Screen
+                    name='Login'
+                    options={{...base.stackHeaderStyle}}
+                >
                     {(screenprops) => <Login {...screenprops} setIsLoggedIn={setIsLoggedIn}/>}
                 </Stack.Screen>
-                <Stack.Screen name='Registrera' component={Register} />
+                <Stack.Screen
+                    name='Registrera'
+                    component={Register}
+                    options={{...base.stackHeaderStyle}}
+                />
             </Stack.Navigator>
         </View>
     );
