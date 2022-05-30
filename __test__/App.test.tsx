@@ -23,11 +23,11 @@ test('Testar så att hemskärmen är kartvyn och att den innehåller texten "Try
     });
 });
 
-test('Testar att ett tryck på "Logga in", i menyn, renderar "AuthFields"-komponenten', async () => {
+test('Testar att ett tryck på "Logga in/Registrera", i menyn, renderar "AuthFields"-komponenten', async () => {
     await waitFor(() => {
         const {getByText, getByTestId} = render(<App/>);
 
-        const loginTab = getByText('Logga in');
+        const loginTab = getByText('Logga in/Registrera');
 
         fireEvent(loginTab, 'press');
 

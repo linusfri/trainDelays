@@ -6,7 +6,7 @@ type rootDrawerParamList = {
     Meddelanden: undefined,
     Lista: undefined,
     Registrera: undefined,
-    'Logga in': undefined,
+    'Logga in/Registrera': undefined,
 }
 
 export { rootDrawerParamList };

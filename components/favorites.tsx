@@ -1,16 +1,10 @@
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import { View } from 'react-native';
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { base } from '../Styles/index';
-import authModel from '../models/authModel';
-import trainModel from '../models/trainModel';
-import userModel from '../models/userModel';
-import StationPicker from './StationPicker';
 import FavoriteDetails from './FavoriteDetails';
 import FavoritesList from './FavoritesList';
-import IApiDataEntity from '../interfaces/IApiDataEntity';
-import station from '../interfaces/Istation';
 import favorites from '../types/screens/favoriteList';
 import favoritesStackParamList from '../types/favoritesStackParamList';
 

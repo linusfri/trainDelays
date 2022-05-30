@@ -2,14 +2,7 @@ import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
 import { base, typo } from '../Styles/index';
-import authModel from '../models/authModel';
 import trainModel from '../models/trainModel';
-import userModel from '../models/userModel';
-import TimeModel from '../models/timeModel';
-import favorites from '../types/screens/favoriteList';
-import StationPicker from './StationPicker';
-import station from '../interfaces/Istation';
-import IApiDataEntity from '../interfaces/IApiDataEntity';
 import favoriteStackRoute from '../types/favoriteStackRoute';
 import DelayBoxFav from './DelayBoxFav';
 

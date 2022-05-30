@@ -88,7 +88,7 @@ export default function App() {
                 />
               }
             </Drawer.Screen> :
-            <Drawer.Screen name='Logga in'>
+            <Drawer.Screen name='Logga in/Registrera'>
               {(screenProps) => <Auth {...screenProps} setIsLoggedIn={setIsLoggedIn} /> }
             </Drawer.Screen>
           }

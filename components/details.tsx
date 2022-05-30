@@ -16,12 +16,12 @@ export default function Details({ route } : stackRoute) {
     const lat:string = delay.FromLocation[0].Coords.split(' ')[1];
 
 
-    async function awaitMinutes() {
+    async function awaitDistance() {
         setDistance(await WaitModel.calculateDistance(minutes));
     }
     useEffect(() => {
         setMinutes(+TimeModel.getTimeInMinutes(time).toFixed(2));
-        awaitMinutes();
+        awaitDistance();
     });
 
     return (

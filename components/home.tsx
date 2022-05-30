@@ -1,8 +1,6 @@
-import { Text, ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
-import MapView, { Marker } from 'react-native-maps';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import * as location from 'expo-location';
 
 import MapList from './MapList';
 import Details from './Details';

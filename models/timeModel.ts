@@ -26,6 +26,7 @@ class TimeModel {
         /**
          * Train is delayed past midnight and were supposed to go before midnight.
          * This results in a negative time difference, which these lines fixes.
+         * If the delay is more than 24 hours, then it's GG..
          */
         if (timeDiff < 0) {
             timeDiff += 24 * TimeModel.H_TO_SEC;

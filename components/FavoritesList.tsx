@@ -8,7 +8,6 @@ import userModel from '../models/userModel';
 import favorites from '../types/screens/favoriteList';
 import StationPicker from './StationPicker';
 import station from '../interfaces/Istation';
-import FavoriteDetails from './FavoriteDetails';
 import IApiDataEntity from '../interfaces/IApiDataEntity';
 
 export default function FavoritesList({navigation, isLoggedIn, delays, getDelays } : favorites) {

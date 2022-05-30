@@ -1,4 +1,4 @@
-import { Button, View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -16,7 +16,7 @@ export default function HeaderNav({ navigation, isLoggedIn } : rootDrawer) {
                     /> :
                     <Ionicons
                     style={base.styles.headerIconLeft} name="heart" size={26}
-                    onPress={() => navigation.navigate('Logga in')}
+                    onPress={() => navigation.navigate('Logga in/Registrera')}
                     />
             }
 
