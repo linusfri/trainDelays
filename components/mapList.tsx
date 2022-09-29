@@ -5,7 +5,6 @@ import * as Location from 'expo-location';
 
 import trainModel from '../models/trainModel';
 import { base, typo } from '../Styles/index';
-import Delay from '../interfaces/Idelay';
 import { useState, useEffect } from 'react';
 import DelayBox from './DelayBox';
 import homeStack from '../types/screens/homeStack';

@@ -95,7 +95,7 @@ export default function App() {
         </Drawer.Navigator>
       </NavigationContainer>
       <StatusBar style='light' backgroundColor='#212121'  />
-      <FlashMessage position='top' hideStatusBar={false} style={base.styles.flashMessage}/>
+      <FlashMessage statusBarHeight={30} position={'top'}/>
     </SafeAreaView>
   );
 }

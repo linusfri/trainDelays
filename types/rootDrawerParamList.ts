@@ -1,5 +1,3 @@
-import Delay from '../interfaces/Idelay';
-
 type rootDrawerParamList = {
     Hem: undefined,
     Favoriter: undefined,

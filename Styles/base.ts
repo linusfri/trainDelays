@@ -92,6 +92,16 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
 
+  messageBox: {
+    display: 'flex',
+    borderRadius: 4,
+    backgroundColor: '#424242',
+    marginTop: 6,
+    padding: 6,
+    color: '#FEC106',
+    flexDirection: 'column',
+  },
+
   stationNameBox: {
     borderRadius: 4,
     backgroundColor: '#424242',

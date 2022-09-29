@@ -10,7 +10,7 @@ import StationPicker from './StationPicker';
 import station from '../interfaces/Istation';
 import IApiDataEntity from '../interfaces/IApiDataEntity';
 
-export default function FavoritesList({navigation, isLoggedIn, delays, getDelays } : favorites) {
+export default function FavoritesList({ navigation, isLoggedIn, delays, getDelays } : favorites) {
     const [userFavorites, setUserFavorites] = useState<string[]>([]);
     const [stations, setStations] = useState<station[]>([]);
 

@@ -1,9 +1,9 @@
 import { View, Text, TouchableOpacity } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { showMessage } from 'react-native-flash-message';
 
-import { base, forms, typo } from '../Styles/index';
+import { base, typo } from '../Styles/index';
 import stationPicker from '../types/screens/stationPicker';
 import userModel from '../models/userModel';
 import trainModel from '../models/trainModel';

@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView } from 'react-native';
+import React from 'react';
 
 import { base, typo } from '../Styles/index';
 import trainModel from '../models/trainModel';

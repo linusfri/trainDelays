@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create( {
     pBold: {
@@ -26,6 +26,11 @@ const styles = StyleSheet.create( {
     delayBoxPBold: {
         fontWeight: '900',
         color: '#FEC106'
+    },
+
+    messageBoxText: {
+        color: '#FEC106',
+        textAlign: 'left',
     },
 
     buttonText: {
